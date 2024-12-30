@@ -126,11 +126,16 @@ main {
 }
 
 @media (max-width: 900px) {
+
+    .scoreboard {
+        width: 178px;
+        height: 78px;
+    }
    
     .grid-container {
         display: grid;
-        grid-template-columns: 220px 220px;
-        grid-template-rows: 220px 220px 220px 220px 220px 220px;
+        grid-template-columns: 120px 120px 120px;
+        grid-template-rows: 120px 120px 120px 120px 120px 120px;
         gap: 10px;
     }
 }
