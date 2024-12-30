@@ -92,7 +92,9 @@ const showWinner = () => {
     const winnerPane = document.getElementById('winner-pane');
     const winnerMessage = document.getElementById('winner-message');
     const winner = scores.player1 > scores.player2 ? 1 : 2;
-    if (winner === 1) {
+    if (scores.player1 === scores.player2) {
+        winnerMessage.textContent = 'Game was a draw!'  
+    } else if (winner === 1) {
         winnerMessage.textContent = localStorage.getItem("player1Name") ? `${localStorage.getItem("player1Name")} is the winner!` : 'Player 1 is the winner';
     } else {
         winnerMessage.textContent = localStorage.getItem("player2Name") ? `${localStorage.getItem("player2Name")} is the winner!` : 'Player 2 is the winner';
