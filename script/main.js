@@ -4,7 +4,7 @@ let currentPlayer = 1;
 
 const scores = {
     player1: 0,
-    player2: 0
+    player2: 0,
 }
 
 const getShuffledArr = arr => {
@@ -38,13 +38,11 @@ const clicked = (event) => {
                 updateActivePlayer()
                 setTimeout(hideAllImages, 1000);
             }
-
         }
         else {
             canClick = true;
         }
     }
-    
 }
 
 const showAllImages = () => {
@@ -94,7 +92,11 @@ const showWinner = () => {
     const winnerPane = document.getElementById('winner-pane');
     const winnerMessage = document.getElementById('winner-message');
     const winner = scores.player1 > scores.player2 ? 1 : 2;
-     winnerMessage.textContent = `Player ${winner} is the winner!`;
+    if (winner === 1) {
+        winnerMessage.textContent = localStorage.getItem("player1Name") ? `${localStorage.getItem("player1Name")} is the winner!` : 'Player 1 is the winner';
+    } else {
+        winnerMessage.textContent = localStorage.getItem("player2Name") ? `${localStorage.getItem("player2Name")} is the winner!` : 'Player 2 is the winner';
+    }
      winnerPane.classList.add('show');
 } 
 
@@ -102,15 +104,35 @@ const newGame = () => {
     window.location.reload()
 }
 
-window.peek = () => {
-    showAllImages();
-    setTimeout(hideAllImages, 1000);
+const updateContent = () => {
+    const player1 = document.getElementById("player1");
+    const player2 = document.getElementById("player2");
+    localStorage.setItem("player1Name", player1.innerHTML);
+    localStorage.setItem("player2Name", player2.innerHTML);
+
 }
 
 document.getElementById('winner-pane').addEventListener('click', newGame);
 const items = document.getElementsByClassName("grid-item");
-const images = getShuffledArr(['elephant', 'elephant', 'lion', 'lion', 'toad', 'toad', 'penguin', 'penguin', 'monkey', 'monkey', 'tiger','tiger'])
+const images = getShuffledArr([
+    'elephant', 'elephant', 
+    'lion', 'lion', 
+    'toad', 'toad', 
+    'penguin', 'penguin', 
+    'monkey', 'monkey', 
+    'tiger','tiger'
+])
 
 Array.from(items).forEach((item) => {
     item.addEventListener('click', clicked);
 })
+
+const player1 = document.getElementById("player1");
+const player2 = document.getElementById("player2");
+localStorage.getItem("player1Name") ? player1.innerHTML = localStorage.getItem("player1Name") : 'Player 1'
+localStorage.getItem("player2Name") ? player2.innerHTML = localStorage.getItem("player2Name") : 'Player 2'
+
+window.peek = () => {
+    showAllImages();
+    setTimeout(hideAllImages, 1000);
+}
