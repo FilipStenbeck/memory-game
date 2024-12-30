@@ -109,8 +109,8 @@ const newGame = () => {
 const updateContent = () => {
     const player1 = document.getElementById("player1");
     const player2 = document.getElementById("player2");
-    localStorage.setItem("player1Name", player1.innerHTML);
-    localStorage.setItem("player2Name", player2.innerHTML);
+    localStorage.setItem("player1Name", player1.textContent.trim());
+    localStorage.setItem("player2Name", player2.textContent.trim());
 
 }
 
