@@ -1,12 +1,22 @@
+:root {
+    --primary-color: aqua;
+    --hover-color: skyblue;
+    --background-color: honeydew;
+    --scoreboard-bg: #fff;
+    --scoreboard-border: #000;
+    --winner-bg: rgba(0, 0, 0, 0.8);
+    --winner-color: #fff;
+}
+
 .grid-container {
     display: grid;
-    grid-template-columns: 220px 220px 220px 220px;;
-    grid-template-rows: 220px 220px 220px 220px;
+    grid-template-columns: repeat(4, 220px);
+    grid-template-rows: repeat(4, 220px);
     gap: 10px;
 }
 
 .grid-item {
-    background-color: aqua;
+    background-color: var(--primary-color);
     border: 1px solid #ccc;
     cursor: pointer;
     border-radius: 1em;
@@ -20,31 +30,31 @@
 }
 
 .grid-item:hover {
-    background-color: skyblue;
+    background-color: var(--hover-color);
 }
 
 .elephant {
-    background-image: url('../img/elephant.png')
+    background-image: url('../img/elephant.png');
 }
 
 .lion {
-    background-image: url('../img/lion.png')
+    background-image: url('../img/lion.png');
 }
 
 .toad {
-    background-image: url('../img/monkey.png')
+    background-image: url('../img/monkey.png');
 }
 
 .penguin {
-    background-image: url('../img/penguin.png')
+    background-image: url('../img/penguin.png');
 }
 
 .monkey {
-    background-image: url('../img/toad.png')
+    background-image: url('../img/toad.png');
 }
 
 .tiger {
-    background-image: url('../img/tiger.png')
+    background-image: url('../img/tiger.png');
 }
 
 .scoreboard-container {
@@ -54,8 +64,8 @@
 }
 
 .scoreboard {
-    background-color: #fff;
-    border: 1px dotted #000;
+    background-color: var(--scoreboard-bg);
+    border: 1px dotted var(--scoreboard-border);
     border-radius: 10px;
     width: 150px;
     height: 100px;
@@ -70,28 +80,29 @@
     background-color: rgba(255, 255, 0, 0.5);
 }
 
+.player-name, .score {
+    font-weight: bold;
+}
+
 .player-name {
     font-size: 18px;
-    font-weight: bold;
     margin-bottom: 10px;
 }
 
 .score {
     font-size: 24px;
-    font-weight: bold;
 }
 
 body {
-    background: honeydew;
+    background: var(--background-color);
 }
 
 header {
-    margin: 0;
+    margin: 0 0 2em 0;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     font-family: Arial, sans-serif;
-    margin-bottom: 2em;
 }
 
 main {
@@ -106,8 +117,8 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
+    background-color: var(--winner-bg);
+    color: var(--winner-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,7 +137,6 @@ main {
 }
 
 @media (max-width: 900px) {
-
     .scoreboard {
         width: 178px;
         height: 78px;
@@ -134,8 +144,8 @@ main {
    
     .grid-container {
         display: grid;
-        grid-template-columns: 120px 120px 120px;
-        grid-template-rows: 120px 120px 120px 120px 120px 120px;
+        grid-template-columns: repeat(3, 120px);
+        grid-template-rows: repeat(6, 120px);
         gap: 10px;
     }
 }

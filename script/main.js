@@ -88,6 +88,7 @@ const updateActivePlayer = () => {
     }
 }
 
+
 const showWinner = () => {
     const winnerPane = document.getElementById('winner-pane');
     const winnerMessage = document.getElementById('winner-message');
@@ -128,6 +129,7 @@ const images = getShuffledArr([
 Array.from(items).forEach((item) => {
     item.addEventListener('click', clicked);
 })
+
 
 const player1 = document.getElementById("player1");
 const player2 = document.getElementById("player2");
